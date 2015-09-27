@@ -21,8 +21,8 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         USERS
-                        <small>Subheading</small>
                     </h1>
+                    <a href="add_user.php" class="btn btn-primary">Add User</a>
                     <div class="col-md-12">
                         <table class="table table-hover">
                             <thead>
@@ -44,7 +44,6 @@
                                     echo "<div class='action_links'>";
                                         echo "<a href='delete_user.php?id={$user->id}'>Delete</a>";
                                         echo "<a href='edit_user.php?id={$user->id}'>Edit</a>";
-                                        echo "<a href='view_user.php?id={$user->id}'>View</a>";
                                     echo "</div>";
                                 echo "</td>";
                                 echo "<td>" . $user->first_name . "</td>";
