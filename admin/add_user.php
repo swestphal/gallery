@@ -42,6 +42,7 @@ if (isset($_POST['submit'])) {
                     <h1 class="page-header">
                         USERS
                         <small>Subheading</small>
+                        <p><?php print_r($user->errors);?></p>
                     </h1>
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="col-md-6 col-md-offset-3">

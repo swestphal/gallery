@@ -17,13 +17,15 @@ if (isset($_POST['update'])) {
     $user->last_name = $_POST['last_name'];
     $user->password = $_POST['password'];
 
-    if (empty($_FILES['user_image'])) {
+    if (empty($_FILES['user_image']['name'])) {
         $user->save();
+
     } else {
         $user->set_file($_FILES['user_image']);
         $user->save_user_and_image();
     }
-    redirect_to("edit_user.php?id=".$user->id );
+    print_r ($_FILES);
+//    redirect_to("edit_user.php?id=".$user->id );
 }
 ?>
 
@@ -56,7 +58,7 @@ if (isset($_POST['update'])) {
 
 
                             <div class="form form-group">
-                                <input type="file" name="user_image" class="form-control">
+                                <input type="file" name="user_image" class="form-control" value="">
                             </div>
 
                             <div class="form form-group">

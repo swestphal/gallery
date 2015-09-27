@@ -29,7 +29,6 @@ class User extends Db_object
             return false;
         } else {
             $this->user_image = basename($file['name']);
-//            $this->user_image = $file['name'];
             $this->tmp_path = $file['tmp_name'];
             $this->type = $file['type'];
             $this->size = $file['size'];
@@ -39,9 +38,9 @@ class User extends Db_object
 
     public function save_user_and_image()
     {
-//            if (!empty($this->errors)) {
-//                return false;
-//            }
+            if (!empty($this->errors)) {
+                return false;
+            }
             if (empty($this->user_image) || empty($this->tmp_path)) {
                 $this->errors[] = "the file was not available";
                 return false;
