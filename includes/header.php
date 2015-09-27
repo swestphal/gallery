@@ -1,3 +1,4 @@
+<?php require_once("admin/includes/init.php");ob_start();?>
 <!DOCTYPE html>
 <html lang="en">
 

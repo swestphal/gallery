@@ -28,7 +28,7 @@ class Db_object
     /**
      * instantiate the calling class
      * @param $record
-     * @return User
+     * @return Object
      */
 
 
