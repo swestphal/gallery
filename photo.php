@@ -5,8 +5,9 @@
 if (empty($_GET['id'])) {
     redirect_to("index.php");
 } else {
+    $photo = Photo::find_by_id($_GET['id']);
     if (isset($_POST['submit'])) {
-        $photo = Photo::find_by_id($_GET['id']);
+
         if ($photo) {
             $comment = new Comment();
             $comment->author = $_POST['author'];
@@ -70,7 +71,7 @@ if (empty($_GET['id'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <a class="navbar-brand" href="index.php">Home</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -102,11 +103,11 @@ if (empty($_GET['id'])) {
             <!-- Blog Post -->
 
             <!-- Title -->
-            <h1>Blog Post Title</h1>
+            <h1><?php echo $photo->title;?></h1>
 
             <!-- Author -->
             <p class="lead">
-                by <a href="#">Start Bootstrap</a>
+                by <a href="#">Tom</a>
             </p>
 
             <hr>
@@ -117,29 +118,13 @@ if (empty($_GET['id'])) {
             <hr>
 
             <!-- Preview Image -->
-            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+            <img class="img-responsive thumbnail" src="<?php echo "admin/".$photo->get_picture_path();?>" alt="">
 
             <hr>
 
             <!-- Post Content -->
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut,
-                error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae
-                laborum minus inventore?</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste
-                ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus,
-                voluptatibus.</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde
-                eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis.
-                Enim, iure!</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat
-                totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam
-                tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae?
-                Qui, necessitatibus, est!</p>
+            <p class="lead"><?php echo $photo->caption;?></p>
+            <p><?php echo $photo->description;?></p>
 
             <hr>
 
@@ -254,8 +239,8 @@ if (empty($_GET['id'])) {
     <!-- Footer -->
     <footer>
         <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2014</p>
+            <div class="col-lg-12 text-center">
+                <p>Copyright &copy; alp-studio 2014</p>
             </div>
         </div>
         <!-- /.row -->

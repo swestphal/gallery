@@ -11,3 +11,4 @@ require_once("class.session.php");
 require_once("class.user.php");
 require_once("class.photo.php");
 require_once("class.comment.php");
+require_once("class.pagination.php");
