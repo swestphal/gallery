@@ -7,57 +7,124 @@
                 Blank Page
                 <small>Subheading</small>
             </h1>
-            <?php
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-users fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">
+                                        <?php echo $session->count; ?>
+                                    </div>
+                                    <div>New Views</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-photo fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">
+                                        <?php echo Photo::count_all();?>
+                                    </div>
+                                    <div>Photos</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Total Photos in Gallery</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
 
-            $found_user=Photo::find_all();
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-user fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">
+                                        <?php echo User::count_all();?>
+                                    </div>
 
+                                    <div>Users</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Total Users</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
-                foreach($found_user as $user){
-                 echo $user->filename;
-                }
-//
-//            $found_user=User::find_user_by_id(2);
-//            echo $found_user->username;
-//
-//            $found = User::verify_user("Marie","pfote");
-//            if($found)echo ("Password correct");
-//            if($found) {
-//                $session->login($user_found);
-////                redirect_to("index.php");
-//            echo ($session->is_signed_in());
-//            }
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-support fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">
+                                        <?php echo Comment::count_all();?>
+                                    </div>
+                                    <div>Comments</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Total Comments</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
-//            $users = new User();
-//            $users->username="Bello";
-//            $users->first_name = "Bellolino";
-//            $users->last_name = "Müller";
-//            $users->password = "knochen";
-//            echo $users->save();
-//           echo $users->username;
-
-//$photos = Photo::find_all();
-//foreach($photos as $photo) {
-//echo $photo->title;
-//}
-//            $photo = new Photo();
-//            $photo->title = "phototitel";
-//            echo $photo->save();
-
-            ?>
-            <ol class="breadcrumb">
-                <li>
-                    <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>
-                </li>
-                <li class="active">
-                    <i class="fa fa-file"></i> Blank Page
-                </li>
-            </ol>
+            </div>
+            <!--First Row-->
         </div>
     </div>
     <!-- /.row -->
 
+    <div class="row">
+        <div id="piechart" style="width: 900px; height: 500px;"></div>
+
+    </div>
 </div>
 <!-- /.container-fluid -->

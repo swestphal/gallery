@@ -192,6 +192,17 @@ class Db_object
         } else {
             return false;
         }
+    }
+
+    public static function count_all()
+    {
+        global $database;
+        $query = "SELECT COUNT(*) FROM " . static::$db_table;
+        $result_set = $database->query($query);
+        $rows = $result_set->fetch_row();
+        return  array_shift($rows);
+
 
     }
 }
+

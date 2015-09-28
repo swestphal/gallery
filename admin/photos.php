@@ -30,7 +30,9 @@
                                 <th>Photo</th>
                                 <th>Id</th>
                                 <th>File Name</th>
+                                <th>Title</th>
                                 <th>Size</th>
+                                <th>Comments</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -39,15 +41,20 @@
                                 echo "<tr>";
                                 echo "<td>";
                                 echo "<img class='admin-photo-thumbnail'  src=" . $photo->get_picture_path() . ">";
-                                    echo "<div class='pictures_link'>";
+                                    echo "<div class='action_links'>";
                                         echo "<a href='delete_photo.php?id={$photo->id}'>Delete</a>";
                                         echo "<a href='edit_photo.php?id={$photo->id}'>Edit</a>";
-                                        echo "<a href='view_photo.php?id={$photo->id}'>View</a>";
+                                        echo "<a href='../photo.php?id={$photo->id}'>View</a>";
                                     echo "</div>";
                                 echo "</td>";
                                 echo "<td>" . $photo->id . "</td>";
+                                echo "<td>" . $photo->filenam . "</td>";
                                 echo "<td>" . $photo->title . "</td>";
                                 echo "<td>" . $photo->size . "</td>";
+                                echo "<td>";
+                                    $comments = Comment::find_the_comments($photo->id);
+                                    echo "<a href=comments_photo.php?id={$photo->id}>".count($comments)."</a>";
+                                echo "</td>";
                                 echo "</tr>";
                             }; ?>
                             </tbody>

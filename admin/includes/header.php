@@ -17,6 +17,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
 
