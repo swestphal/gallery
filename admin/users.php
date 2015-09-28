@@ -1,7 +1,8 @@
 <?php include("includes/header.php"); ?>
 <?php if (!$session->is_signed_in()) {
     redirect_to("login.php");
-} ?>
+}else {
+    $users = User::find_all();} ?>
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -35,7 +36,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <?php $users = User::find_all();
+                            <?php
                             foreach ($users as $user) {
                                 echo "<tr>";
                                 echo "<td>" . $user->id . "</td>";
